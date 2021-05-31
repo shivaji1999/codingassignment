@@ -1,0 +1,32 @@
+1.	class Demo {  
+2.	    private int _mark;  
+3.	    public int Mark {  
+4.	        get {  
+5.	            return _mark;  
+6.	        }  
+7.	        set {  
+8.	            if (_mark > 0) _mark = value;  
+9.	            else _mark = 0;  
+10.	        }  
+11.	    }  
+12.	} 
+
+
+1.	public class ParentClass {  
+2.	    public ParentClass() {  
+3.	        Console.WriteLine("Parent Constructor.");  
+4.	    }  
+5.	    public void print() {  
+6.	        Console.WriteLine("I'm a Parent Class.");  
+7.	    }  
+8.	}  
+9.	public class ChildClass: ParentClass {  
+10.	    public ChildClass() {  
+11.	        Console.WriteLine("Child Constructor.");  
+12.	    }  
+13.	    public static void Main() {  
+14.	        ChildClass child = new ChildClass();  
+15.	        child.print();  
+16.	    }  
+17.	}
+
