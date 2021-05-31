@@ -1,0 +1,123 @@
+1.	  /// get method
+      /// <summary>  
+2.	       /// Get Data from db  
+3.	       /// </summary>        
+4.	       /// <returns></returns>  
+5.	       [HttpGet]  
+6.	       [SwaggerOperation(Tags = new[] { "xyz" })]  
+7.	       [Route("GetData")]  
+8.	       public IHttpActionResult GetData()  
+9.	       {  
+10.	           var list = _provider.GetData();  
+11.	  
+12.	           if (list == null)  
+13.	           {  
+14.	               return NotFound();  
+15.	           }  
+16.	           return Ok(list);  
+17.	       }
+
+///post method
+1.	[HttpPost]  
+2.	        [SwaggerOperation(Tags = new[] { "Dictionary" })]  
+3.	        [Route("SaveData")]  
+4.	        public IHttpActionResult SaveData(CustomerInfoobj)  
+5.	        {  
+6.	           ResponseWrapper responseObj = new ResponseWrapper();  
+7.	            try  
+8.	            {  
+9.	  
+10.	                var _result = _provider.SaveData(obj);  
+11.	                if (_result != null)  
+12.	                {  
+13.	                    responseObj.status = "success";  
+14.	                    responseObj.data = new { message = _result };  
+15.	                }  
+16.	                else  
+17.	                {  
+responseObj.status = "warning";  
+19.	                    responseObj.data = new { message = "Operation Failed." };  
+20.	                }  
+21.	            }  
+22.	            catch (Exception ex)  
+23.	            {  
+24.	                responseObj.status = "error";  
+25.	                responseObj.data = new { message = ex.Message };  
+26.	            }  
+27.	            return Ok(responseObj);  
+28.	        }  
+
+
+
+///put method
+29.	/// <summary>  
+30.	       /// Update Data.  
+31.	       /// </summary>  
+32.	       /// <param name="obj"></param>  
+33.	       /// <returns></returns>  
+34.	       [HttpPut]  
+35.	       [SwaggerOperation(Tags = new[] { "Dictionary" })]  
+36.	       [Route("UpdateData")]  
+37.	       public IHttpActionResult UpdateData(CustomerInfoobj)  
+38.	       {              
+39.	           ResponseWrapper responseObj = new ResponseWrapper();  
+40.	           try  
+41.	           {  
+42.	               var _result = _provider.UpdateData(obj);  
+43.	               if (_result != null)  
+44.	               {  
+45.	                   responseObj.status = "success";  
+46.	                   responseObj.data = new { message = _result };  
+47.	               }  
+48.	               else  
+49.	               {  
+50.	                   responseObj.status = "warning";  
+51.	                   responseObj.data = new { message = "Operation Failed." };  
+52.	               }  
+53.	           }  
+54.	           catch (Exception ex)  
+55.	           {  
+56.	               responseObj.status = "error";  
+57.	               responseObj.data = new { message = ex.Message };  
+58.	           }  
+59.	           return Ok(responseObj);  
+60.	       }  
+
+
+///delete method
+1.	/// <summary>  
+2.	       /// Delete info.  
+3.	       /// </summary>  
+4.	       /// <param name="ID></param>  
+5.	       /// <returns></returns>  
+6.	       [HttpPut]  
+7.	       [SwaggerOperation(Tags = new[] { "Client Dictionary" })]  
+8.	       [Route("DeleteData/{Id}")]  
+9.	       public IHttpActionResult DeleteData(int Id)  
+10.	       {              
+11.	           ResponseWrapper responseObj = new ResponseWrapper();  
+12.	           try  
+13.	           {  
+14.	               var _result = _provider.DeleteData(Id);  
+15.	               if (_result != null)  
+16.	               {  
+17.	                   responseObj.status = "success";  
+18.	                   responseObj.data = new { message = _result };  
+19.	               }  
+20.	               else  
+21.	               {  
+22.	                   responseObj.status = "warning";  
+23.	                   responseObj.data = new { message = "Operation Failed." };  
+24.	               }  
+25.	           }  
+26.	           catch (Exception ex)  
+27.	           {  
+28.	               responseObj.status = "error";  
+29.	               responseObj.data = new { message = ex.Message };  
+30.	           }  
+31.	           return Ok(responseObj);  
+32.	       }
+
+
+
+
